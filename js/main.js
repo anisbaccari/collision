@@ -2,7 +2,7 @@ import Paddle from "./paddle.js"; // Import Paddle object
 import Ball from "./ball.js"; // Import Ball logic
 import Ground from "./ground.js"; // Import Ground object
 import Loop from "./loop.js";
-
+import Pong from "./Pong.js";
 
 // BASED ELEMENT
 const canvas  = document.getElementById('renderCanvas'); 
@@ -34,7 +34,7 @@ const createScene = function(){
     const light = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(0, 1, 0), scene);
     light.intensity = 0.3;
 
-    // Initialize ground
+/*     // Initialize ground
     Ground.init(scene);
     let paddle_pos = Ground.getWidth();
    
@@ -42,14 +42,15 @@ const createScene = function(){
      Paddle.init(scene, paddle_pos);
 
     // init ball 
-    Ball.init(scene);
+    Ball.init(scene); */
 
+   const pong = new Pong(scene); 
+   pong.init();
    return scene;
      
 }
 
 const scene = createScene(); 
-
  engine.runRenderLoop(function(){
     if(isRendering)
         scene.render();

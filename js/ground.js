@@ -28,11 +28,12 @@ const Ground = {
 
         // Create a material for the ground
         const groundMaterial = new BABYLON.StandardMaterial("groundMaterial", scene);
+        groundMaterial.diffuseTexture = new BABYLON.Texture("textures/grass.jpg", scene);
         groundMaterial.diffuseColor = new BABYLON.Color3.Green(); // Green ground
         this.groundMesh.material = groundMaterial;
 
         // Ensure the ground receives shadows
-        this.groundMesh.receiveShadows = true;
+      //  this.groundMesh.receiveShadows = true;
     },
     getWidth()
     {

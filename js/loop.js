@@ -29,14 +29,14 @@ collisionState: false, // Tracks whether the ball is currently colliding
         
         if (isColliding && !this.collisionState) {
             // Collision just started
-            console.log(" Paddle Colliding");
+           // console.log(" Paddle Colliding");
             this.collisionState = true;
             ballDirection.x *=-1;
          
         }
         if (ballGroundCollision_x && !this.collisionState) {
                 // Collision just started
-                console.log("ballGroundCollision_x");
+        //        console.log("ballGroundCollision_x");
                 this.collisionState = true;
                 ballDirection.x *=-1;
              
@@ -52,7 +52,7 @@ collisionState: false, // Tracks whether the ball is currently colliding
             this.collisionState = false;
         }
 
-       Ball.ball.position.addInPlace(ballDirection)
+     //  Ball.ball.position.addInPlace(ballDirection)
     },
     paddleMovement()
     {
@@ -76,7 +76,7 @@ collisionState: false, // Tracks whether the ball is currently colliding
 
 
     // Limit paddles within the scene (assuming ground level y = 0 and ceiling at y = 25)
-    Paddle.leftPaddle.position.z  = BABYLON.Scalar.Clamp(Paddle.leftPaddle.position.z, Ground.z_min, Ground.z_max );
+    Paddle.leftPaddle.position.z  = BABYLON.Scalar.Clamp(Paddle.leftPaddle.position.z, Ground.z_min , Ground.z_max );
     Paddle.rightPaddle.position.z = BABYLON.Scalar.Clamp(Paddle.rightPaddle.position.z, Ground.z_min,Ground.z_max);
       
 }
