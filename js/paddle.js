@@ -2,45 +2,6 @@
 
 / * ================= PADDLES ================= */ 
 
-/* 
-    //// COLORS 
-    const paddle_colors = [  
-        new BABYLON.Color3.Red(), // Red
-        new BABYLON.Color3.Red(), // Red
-        new BABYLON.Color3.Red(), // Red
-        new BABYLON.Color3.Red(), // Red
-        new BABYLON.Color3.Red(), // Red
-        new BABYLON.Color3.Red(), // Red
-    ];
-    
-        //// DIMENSION
-    const paddle_width = 1; 
-    const paddle_height = 1; 
-    const paddle_depth = 10; 
-    const l_paddle_pos_x =   (- g_width / 2 ) + (paddle_width/ 2 );
-    const r_paddle_pos_x =   ( g_width / 2 ) - (paddle_width/ 2 ); 
-    const r_paddle_bound_x = ( g_width / 2 ) - (paddle_width ); 
-    const l_paddle_bound_x = (- g_width / 2 ) + (paddle_width ); 
-    
-    
-        //// OPT
-    
-    const paddle_opt = {
-        width: paddle_width, 
-        height:paddle_height,
-        depth:paddle_depth,
-        faceColors: paddle_colors
-    };
-    
-    
-        /// POSITION 
-    const l_paddle = BABYLON.MeshBuilder.CreateBox("left paddle",paddle_opt,scene);
-    l_paddle.position = new BABYLON.Vector3( l_paddle_pos_x, 0, 0); 
-    
-    const r_paddle = BABYLON.MeshBuilder.CreateBox("Right paddle",paddle_opt,scene);
-    r_paddle.position = new BABYLON.Vector3(r_paddle_pos_x, 0,0); 
-   
- */
 
 
 

@@ -1,31 +1,58 @@
 import Paddle from "./paddle.js"; // Import Paddle object
 import Ball from "./ball.js"; // Import Ball logic
+import Ground from "./ground.js"; // Import Ball logic
+import display from "./util.js"; // Import Utils logic
+const Loop = {
 
- const Loop = {
 
 
-     check()
-{
 
-            //// X' axis
-    if (ball.position.x >= b_left_bound_x   || ball.position.x <= b_right_bound_x )
-        return true; 
-    else 
-        return false;
-}, 
+collisionState: false, // Tracks whether the ball is currently colliding
 
- loop()
-{
-    let ball_vec  = new BABYLON.Vector3(0.3, 0, 0);
-    //   Ball.ball.position.addInPlace(ball_vec);
-       if(Ball.ball.position.x <=  Paddle.leftPaddle.position.x ||
-           Ball.ball.position.x <= Paddle.rightPaddle.position.x
-        )
-        console.log("///////////////////////////////");
-   
-}
+    loop() {
+       
+        let ballDirection = Ball.ballDirection; // Use the ball's direction vector  // ya ya 
+      //  display.game();
+        const isColliding =
+            Ball.ball.intersectsMesh(Paddle.leftPaddle, false) ||
+            Ball.ball.intersectsMesh(Paddle.rightPaddle, false);
+
+        const ballGroundCollision_x =  
+                    Ball.ball.position.x <= Ground.x_min ||
+                    Ball.ball.position.x >= Ground.x_max;
+    
+        const ballGroundCollision_z =  
+                    Ball.ball.position.z <= Ground.z_min ||
+                    Ball.ball.position.z >= Ground.z_max;
+
+
+        
+        if (isColliding && !this.collisionState) {
+            // Collision just started
+            console.log(" Paddle Colliding");
+            this.collisionState = true;
+            ballDirection.x *=-1;
+         
+        }
+        if (ballGroundCollision_x && !this.collisionState) {
+                // Collision just started
+                console.log("ballGroundCollision_x");
+                this.collisionState = true;
+                ballDirection.x *=-1;
+             
+
+        } if (ballGroundCollision_z && !this.collisionState) {
+            // Collision just started
+            console.log("ballGroundCollision_z");
+            this.collisionState = true;
+            ballDirection.z *=-1;
+       
+        } else if (!isColliding) {
+            // No collision, reset state
+            this.collisionState = false;
+        }
+
+        Ball.ball.position.addInPlace(ballDirection)
+    },
 }
 export default Loop;
-
-
-

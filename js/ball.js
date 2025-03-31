@@ -19,32 +19,19 @@
  let ballDirection = new BABYLON.Vector3(0.3, 0, 0);
  
   */
- 
- /* ===== BOUNDERY ====  */
- 
-/*  const b_left_bound_x=  0;//r_paddle_bound_x - b_pos_y; 
- const b_right_bound_x= 0;// l_paddle_bound_x + b_pos_y; 
- 
- 
- 
- 
- ball.position = new BABYLON.Vector3(b_pos_x , b_pos_y,b_pos_z);
- // Create a shadow generator
- const shadowGenerator = new BABYLON.ShadowGenerator(1024, light);
- shadowGenerator.addShadowCaster(ball); // Make the sphere cast shadows
- shadowGenerator.useBlurExponentialShadowMap = true; // Optional: Enable soft shadows */
+
  
  const Ball = {
 
     ball:null
     
     , b_diameter : 1
-    , b_pos_z : 0
+    , b_pos_z : 6
     , b_pos_y : 0.5 // , b_diameter/2 
     , b_pos_x : 0
 
-    , ballSpeed : 0.1
-    , ballDirection : new BABYLON.Vector3(0.3, 0, 0)
+   
+    , ballDirection : new BABYLON.Vector3(0.3,0, 0.1)
     , b_left_bound_x: 0
     , b_right_bound_x: 0 
 
@@ -58,11 +45,9 @@
          this.b_pos_x = 0; */
 
         const ball = BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: this.b_diameter }, scene);
-/* 
-        // Initial ball movement vectors
-        let ballSpeed = 0.1;
-        let ballDirection = new BABYLON.Vector3(0.3, 0, 0);
- */
+
+// Initial ball movement vectors
+
 /*         // Ball boundaries
         const b_left_bound_x = 0;
         const b_right_bound_x = 0; */
@@ -73,6 +58,7 @@
         const light = new BABYLON.DirectionalLight("dirLight", new BABYLON.Vector3(-1, -2, -1), scene);
         const shadowGenerator = new BABYLON.ShadowGenerator(1024, light);
         shadowGenerator.addShadowCaster(ball);
+        ball.position = this.position;
         this.ball = ball;
     },
 };
