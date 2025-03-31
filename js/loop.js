@@ -52,7 +52,33 @@ collisionState: false, // Tracks whether the ball is currently colliding
             this.collisionState = false;
         }
 
-        Ball.ball.position.addInPlace(ballDirection)
+       Ball.ball.position.addInPlace(ballDirection)
     },
+    paddleMovement()
+    {
+
+    //console.log("valuye : ",- g_height + (paddle_depth * 2 ))
+    if (moveUpR) {
+        Paddle.rightPaddle.position.z += paddleSpeed;
+        
+    }
+    if (moveDownR){ 
+        Paddle.rightPaddle.position.z -= paddleSpeed;
+        
+    } 
+    if (moveUpL) {
+        Paddle.leftPaddle.position.z += paddleSpeed;
+    }
+    if (moveDownL) {Paddle.leftPaddle.position.z -= paddleSpeed;}
+    
+
+
+
+
+    // Limit paddles within the scene (assuming ground level y = 0 and ceiling at y = 25)
+    Paddle.leftPaddle.position.z  = BABYLON.Scalar.Clamp(Paddle.leftPaddle.position.z, Ground.z_min, Ground.z_max );
+    Paddle.rightPaddle.position.z = BABYLON.Scalar.Clamp(Paddle.rightPaddle.position.z, Ground.z_min,Ground.z_max);
+      
+}
 }
 export default Loop;

@@ -1,7 +1,7 @@
 import Paddle from "./paddle.js"; // Import Paddle object
 import Ball from "./ball.js"; // Import Ball logic
 import Ground from "./ground.js"; // Import Ground object
-import Loop from "./loop.js"
+import Loop from "./loop.js";
 
 
 // BASED ELEMENT
@@ -60,16 +60,17 @@ const scene = createScene();
 
 
  });
+
  window.addEventListener("keydown", (event) => {
-   if (event.key === "p") { //  pause/unpause
+   if (event.key === "p") { // Press 'p' to pause/unpause
        isRendering = !isRendering;
        console.log(isRendering ? "Rendering resumed!" : "Rendering paused!");
    }
 });
 
-
  // Main logic Game 
 scene.onBeforeRenderObservable.add(() => {
    Loop.loop()
+   Loop.paddleMovement()
 
 });
