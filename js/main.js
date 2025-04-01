@@ -19,31 +19,20 @@ const createScene = function(){
     const camera = new BABYLON.ArcRotateCamera(
       "camera1", 
      - Math.PI /2, // Alpha (rotation around Y-axis)
-     - Math.PI , // Beta (rotation around X-axis, top-down view)
+     - Math.PI /2, // Beta (rotation around X-axis, top-down view)
       150,          // Radius (distance from the target)
       new BABYLON.Vector3(0, 0, 0), // Target (center of the ground)
       scene
          );
 
     camera.setTarget(BABYLON.Vector3.Zero());
-  //  camera.attachControl(canvas, true);
+    camera.attachControl(canvas, true);
     camera.inputs.removeByType("FreeCameraKeyboardMoveInput"); 
     camera.inputs.addMouseWheel();
     
     // Add a hemispheric light
-    const light = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(0, 1, 0), scene);
-    light.intensity = 0.3;
-
-/*     // Initialize ground
-    Ground.init(scene);
-    let paddle_pos = Ground.getWidth();
-   
-    // Initialize paddles
-     Paddle.init(scene, paddle_pos);
-
-    // init ball 
-    Ball.init(scene); */
-
+    const light = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(0.3, 0.5, 0), scene);
+    light.intensity = 0.1;
    const pong = new Pong(scene); 
    pong.init();
    return scene;

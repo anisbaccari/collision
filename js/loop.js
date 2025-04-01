@@ -52,7 +52,7 @@ collisionState: false, // Tracks whether the ball is currently colliding
             this.collisionState = false;
         }
 
-     //  Ball.ball.position.addInPlace(ballDirection)
+       Ball.ball.position.addInPlace(ballDirection)
     },
     paddleMovement()
     {

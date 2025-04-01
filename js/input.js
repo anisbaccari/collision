@@ -1,5 +1,5 @@
 // Adjust speed
-const paddleSpeed = 0.2; 
+const paddleSpeed = 0.5; 
 // move 
 let moveUpL = false, moveDownL = false, moveUpR = false, moveDownR = false;
 
